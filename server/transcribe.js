@@ -1,4 +1,4 @@
-import { Pipeline } from "@xenova/transformers"
+import { pipeline } from "@xenova/transformers"
 
 import { transcriptionExample } from "./utils/transcription.js"
 
@@ -10,11 +10,11 @@ export async function transcribe(audio) {
 
     const transcribe = await pipeline(
       "automatic-speech-recognition",
-      "xenova/whisper-samal"
+      "Xenova/whisper-small"
     )
 
     const transcription = await transcribe(audio, {
-      chunk_lenght_s: 30,
+      chunk_length_s: 30,
       stride_length_s: 5,
       language: "portuguese",
       task: "transcribe",
